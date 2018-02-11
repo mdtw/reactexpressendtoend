@@ -10,7 +10,12 @@ app.get('/todos', (req, res) =>
 
 app.post('/addToDo', (req, res) => {
     toDoList.push(JSON.parse(req.body.toString()))
-    res.send("It worked") 
+    res.send("New item added")   
+})    
+
+app.post('/clearToDos', (req, res) => {
+    toDoList = [];
+    res.send("All cleared out")
 })
 
 app.listen(4000, () => console.log('Port 4000 is live!') )
